@@ -1,19 +1,102 @@
-<br>
-<div class="container pre-scrollable" >
-  <table class="table table-striped">
-    <thead class="thead-dark">
-    <tr *ngIf="devices[0]">
-      <th scope="col">Energy</th>
-      <th scope="col">Day</th>
+<div >
+    <h4 class="text-center example1">Device details</h4>
+    <div class="container row">
+      <div class="col col-lg-6 col-sm-6 ">
 
-    </tr>
-    </thead>
-    <tbody style="height: 10%;">
-    <tr *ngFor="let device of devices[0]">
-      <td>{{device.current}}</td>
-      <td>{{ device.date}}</td>
-    </tr>
-    </tbody>
-  </table>
-  <br>
+        <form>
+          <h3>Device 01</h3>
+          <div class="form-group">
+            <label>Allocated Energy :</label>
+
+            <label>100 </label>
+          </div>
+          <div class="form-group">
+            <label>Used Energy :</label>
+
+            <label>{{totalEnergy}}</label>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="col col-lg-6 col-sm-6 ">
+
+        <form>
+          <h3>Device 02</h3>
+          <div class="form-group">
+            <label>Allocated Energy :</label>
+            <label> 100 </label>
+
+          </div>
+          <div class="form-group">
+            <label>Used Energy :</label>
+
+            <label> {{totalEnergy2}} </label>
+          </div>
+
+        </form>
+
+      </div>
+
+
+    </div>
+
+    <!---->
+
+    <br>
+    <div class="container row">
+      <div class="col col-sm-6 col-lg-6">
+        <div class="container pre-scrollable">
+          <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr *ngIf="allData">
+              <th scope="col">Energy</th>
+              <th scope="col">Day</th>
+
+            </tr>
+            </thead>
+            <tbody style="height: 10%;">
+            <tr *ngFor="let device of allData">
+              <td>{{device.current}}</td>
+              <td>{{ device.date}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <br>
+        </div>
+
+        <div class="content">
+          <div *ngIf="totalEnergy > 100" style="height: 40px; background-color: #ff4d4a" class="text-center">
+            <h5>You have exceeded the limit.......</h5>
+          </div>
+        </div>
+      </div>
+      <!--2nd-->
+      <div class="col col-sm-6 col-lg-6">
+        <div class="container pre-scrollable">
+          <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr *ngIf="allData">
+              <th scope="col">Energy</th>
+              <th scope="col">Day</th>
+
+            </tr>
+            </thead>
+            <tbody style="height: 10%;">
+            <tr *ngFor="let device of allData2">
+              <td>{{device.current}}</td>
+              <td>{{ device.date}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <br>
+        </div>
+        <div class="content">
+          <div *ngIf="totalEnergy2 > 100"  style="height: 50px; background-color: #ff4d4a" class="text-center">
+            <h5>You have exceeded the limit.......</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </div>

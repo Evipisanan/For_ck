@@ -8,14 +8,22 @@ import {catchError, map, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MainService {
-  private url = 'http://electo-sensor.herokuapp.com/device/02';
+  private url = 'http://electo-sensor.herokuapp.com/device/01';
+  private url2 = 'http://electo-sensor.herokuapp.com/device/02';
   private clearDataURL = '';
 
   constructor(private _httpClient: HttpClient) {
   }
 
-  getAllData(): Observable<Device[]> {
-    return this._httpClient.get<Device[]>(this.url)
+  getAllData(): Observable<any> {
+    return this._httpClient.get<any>(this.url)
+      .pipe(
+        tap(_ => console.log('fetched all daily data......')),
+        catchError(this.handleError('get all data.......' , []))
+      );
+  }
+  getAllData2(): Observable<any> {
+    return this._httpClient.get<any>(this.url2)
       .pipe(
         tap(_ => console.log('fetched all daily data......')),
         catchError(this.handleError('get all data.......' , []))
