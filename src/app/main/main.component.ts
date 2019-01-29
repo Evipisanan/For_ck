@@ -25,17 +25,13 @@ export class MainComponent implements OnInit {
       .subscribe(data => {
         // this.devices = data;
         this.allData = data[0];
-        console.log(data);
-        console.log(this.allData);
         this.calEnergy();
       });
 
     this.mainService.getAllData2()
       .subscribe(data => {
         // this.devices = data;
-        this.allData2 = data[0];
-        console.log(data);
-        console.log(this.allData2);
+        this.allData2 = data[0]
         this.calEnergy2();
       });
   }
@@ -46,20 +42,15 @@ export class MainComponent implements OnInit {
       this.currEnergy = parseFloat(this.allData[i].current);
       this.totalEnergy = this.currEnergy + this.totalEnergy;
     }
-    console.log('total ' + this.totalEnergy);
+    // console.log('total ' + this.totalEnergy);
   }
 
 
   calEnergy2() {
     for (let i = 0; i < this.allData2.length; i++) {
-      console.log(i);
-      console.log(this.allData2.length);
-      console.log('--------------------------------------------');
       this.currEnergy2 = parseFloat(this.allData2[i].current);
       this.totalEnergy2 = this.currEnergy2 + this.totalEnergy;
-      console.log('=============================================');
-      console.log(this.totalEnergy);
     }
-    console.log('total ' + this.totalEnergy2);
+    // console.log('total ' + this.totalEnergy2);
   }
 }

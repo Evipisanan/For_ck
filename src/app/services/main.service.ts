@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
-import {Device} from '../models/Device';
 import {catchError, map, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -29,10 +28,6 @@ export class MainService {
         catchError(this.handleError('get all data.......' , []))
       );
   }
-
-  // clearData(){
-  //   return this._httpClient.post(this.clearDataURL);
-  // }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
